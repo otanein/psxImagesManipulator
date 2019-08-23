@@ -15,6 +15,6 @@ Place the script in your PSX roms folder and type
 
 Then execute it
 
-*./psxImagesManipulator*
+*./psxImagesManipulator.bash*
 
 You'll be prompted with instructions
