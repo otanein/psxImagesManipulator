@@ -123,7 +123,7 @@ Be careful to type the most common part of the files names for multi-discs games
 Example : For ParasiteEve2 CD1.img and ParasiteEve2 CD2.img, type \"ParasiteEve2\" (No quotes or spaces)"
 read GAMENAME
 
-if [[ -d .tmp/ ]]; then
+if [[ ! -d .tmp/ ]]; then
 	mkdir .tmp/
 fi
 
