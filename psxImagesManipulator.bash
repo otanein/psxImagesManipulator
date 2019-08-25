@@ -4,7 +4,7 @@ moveFiles()
 {
 
 IFS=$'\n'
-for i in $(find | grep -i "$GAMENAME")
+for i in $(find . | grep -i "$GAMENAME")
 do
 	chmod 644 "$i"
 	mv "$i" .tmp/
@@ -135,7 +135,7 @@ if [[ $RETVAL -ne 0 ]]; then
 	exit 1
 fi
 
-FILENAME=$(find | grep -i "$GAMENAME")
+FILENAME=$(find . | grep -i "$GAMENAME")
 
 echo "The following files are going to be processed :
 $(ls -1 |grep -i "$GAMENAME")
