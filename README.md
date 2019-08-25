@@ -9,7 +9,12 @@ It can also manipulate multi-discs PSX images to create the proper structure for
 https://github.com/RetroPie/RetroPie-Setup/wiki/Playstation-1#m3u-playlist-for-multi-disc-games
 
 # How to use this tool
-Place the script in your PSX roms folder and type
+
+First, install mame-tools on your RetroPie (will be used by chdman binary to reudec your images size)
+
+*sudo apt-get install mame-tools*
+
+Place the script in your PSX roms folder on your RetroPie and type
 
 *chmod +x psxImagesManipulator.bash*
 
