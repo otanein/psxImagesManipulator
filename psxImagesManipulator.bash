@@ -93,7 +93,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *.bin *.BIN *.img *.IMG > /dev/null 2>&1
+        	rm -f *.bin *.BIN *.img *.IMG *.cue *.CUE > /dev/null 2>&1
 	fi
 fi
 
@@ -128,7 +128,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *.bin *.BIN *.img *.IMG > /dev/null 2>&1
+        	rm -f *.bin *.BIN *.img *.IMG *.cue *.CUE > /dev/null 2>&1
 	fi
 fi
 
