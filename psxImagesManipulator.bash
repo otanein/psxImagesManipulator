@@ -14,6 +14,37 @@ cd .tmp/
 
 }
 
+ecmUncompress()
+{
+
+ls *.ecm > /dev/null 2>&1
+
+if [[ $? -eq 0 ]]; then
+	for i in *.ecm
+	do
+		DIST=$(uname -a | awk -F " " '{ print $1 }' )
+		
+		if [[ $DIST==Linux ]]; then
+			echo "Uncompressing ECM files, please wait..."
+			ecm-uncompress *.ecm > /dev/null 2>&1 && rm -f *.ecm
+		else
+			if [[ $DIST==Darwin ]]; then
+				echo "Uncompressing ECM files, please wait..."
+				unecm *.ecm > /dev/null 2>&1 && rm -f *.ecm
+			else
+				false
+			fi
+		fi
+
+#		if [[ -e *.bin ]] || [[ -e *.BIN ]]; then
+#			rm -f *.bin *.BIN > /dev/null 2>&1
+#		fi
+
+	done
+fi
+
+}
+
 cueGen() 
 {
 
@@ -117,6 +148,7 @@ mv * ../.
 
 echo "My work here is done!"
 exit 0
+
 }
 
 echo "What is the name of the files?
@@ -145,6 +177,7 @@ read CHOICE
 case $CHOICE in
         Y|y)
         moveFiles
+        ecmUncompress
         ;;
         C|c)
         echo "Cancelling..."
