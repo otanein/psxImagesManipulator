@@ -12,14 +12,20 @@ https://github.com/RetroPie/RetroPie-Setup/wiki/Playstation-1#m3u-playlist-for-m
 
 First, install mame-tools on your RetroPie (will be used by chdman binary to reudec your images size)
 
-*sudo apt-get install mame-tools*
+```bash
+sudo apt-get install mame-tools
+```
 
 Place the script in your PSX roms folder on your RetroPie and type
 
-*chmod +x psxImagesManipulator.bash*
+```bash
+chmod +x psxImagesManipulator.bash
+```
 
 Then execute it
 
-*./psxImagesManipulator.bash*
+```bash
+./psxImagesManipulator.bash
+```
 
 You'll be prompted with instructions
