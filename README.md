@@ -8,6 +8,83 @@ It can also manipulate multi-discs PSX images to create the proper structure for
 
 https://github.com/RetroPie/RetroPie-Setup/wiki/Playstation-1#m3u-playlist-for-multi-disc-games
 
+Here is an exemple with Final Fantasy which weighs 2.716 GigaBytes before using psxIM :
+
+```bash
+-rwx------  1 me  600   706M Nov 14  2000 Final Fantasy IX - CD1.bin
+-rwx------  1 me  600   657M Nov 14  2000 Final Fantasy IX - CD2.bin
+-rwx------  1 me  600   696M Nov 14  2000 Final Fantasy IX - CD3.bin
+-rwx------  1 me  600   657M Nov 14  2000 Final Fantasy IX - CD4.bin
+```
+
+Here is the working process :
+
+```bash
+me@retropie:/Volumes/roms/psx$ ./psxImagesManipulator.bash
+What is the name of the files?
+Be careful to type the most common part of the files names for multi-discs games!
+Example : For ParasiteEve2 CD1.img and ParasiteEve2 CD2.img, type "ParasiteEve2" (No quotes or spaces)
+IX
+The following files are going to be processed :
+Final Fantasy IX - CD1.bin
+Final Fantasy IX - CD2.bin
+Final Fantasy IX - CD3.bin
+Final Fantasy IX - CD4.bin
+To confirm, press Y, to cancel, press C.
+Y
+Multi-disc (M) or Solo (S)?
+M
+How do you want to rename the files and playlist (extensions will be automatically set) ?
+Final Fantasy 9
+CUE file generated: Final Fantasy IX - CD1.bin.cue
+CUE file generated: Final Fantasy IX - CD2.bin.cue
+CUE file generated: Final Fantasy IX - CD3.bin.cue
+CUE file generated: Final Fantasy IX - CD4.bin.cue
+chdman - MAME Compressed Hunks of Data (CHD) manager 0.209 (unknown)
+Output CHD:   Final Fantasy IX - CD1.bin.cue.chd
+Input file:   Final Fantasy IX - CD1.bin.cue
+Input tracks: 1
+Input length: 69:59:05
+Compression:  cdlz (CD LZMA), cdzl (CD Deflate), cdfl (CD FLAC)
+Logical size: 770,953,536
+Compression complete ... final ratio = 56.0%
+chdman - MAME Compressed Hunks of Data (CHD) manager 0.209 (unknown)
+Output CHD:   Final Fantasy IX - CD2.bin.cue.chd
+Input file:   Final Fantasy IX - CD2.bin.cue
+Input tracks: 1
+Input length: 65:05:69
+Compression:  cdlz (CD LZMA), cdzl (CD Deflate), cdfl (CD FLAC)
+Logical size: 717,126,912
+Compression complete ... final ratio = 48.8%
+chdman - MAME Compressed Hunks of Data (CHD) manager 0.209 (unknown)
+Output CHD:   Final Fantasy IX - CD3.bin.cue.chd
+Input file:   Final Fantasy IX - CD3.bin.cue
+Input tracks: 1
+Input length: 68:56:70
+Compression:  cdlz (CD LZMA), cdzl (CD Deflate), cdfl (CD FLAC)
+Logical size: 759,545,856
+Compression complete ... final ratio = 49.4%
+chdman - MAME Compressed Hunks of Data (CHD) manager 0.209 (unknown)
+Output CHD:   Final Fantasy IX - CD4.bin.cue.chd
+Input file:   Final Fantasy IX - CD4.bin.cue
+Input tracks: 1
+Input length: 65:02:43
+Compression:  cdlz (CD LZMA), cdzl (CD Deflate), cdfl (CD FLAC)
+Logical size: 716,519,808
+Compression complete ... final ratio = 55.4%
+My work here is done!
+```
+
+Now the game appears as one game (the playlist file) and only weighs 1.482 GigaBytes (50% disk space saved).
+
+```bash
+-rwx------  1 me  600   412M Aug 26 22:23 Final Fantasy 9.CD1
+-rwx------  1 me  600   334M Aug 26 22:26 Final Fantasy 9.CD2
+-rwx------  1 me  600   358M Aug 26 22:28 Final Fantasy 9.CD3
+-rwx------  1 me  600   378M Aug 26 22:30 Final Fantasy 9.CD4
+-rwx------  1 me  600    80B Aug 26 22:30 Final Fantasy 9.m3u
+```
+
 # How to use this tool
 
 First, install mame-tools on your RetroPie (will be used by chdman binary to reudec your images size)
