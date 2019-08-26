@@ -24,22 +24,15 @@ if [[ $? -eq 0 ]]; then
 	do
 		DIST=$(uname -a | awk -F " " '{ print $1 }' )
 		
-		if [[ $DIST==Linux ]]; then
+		if [[ $DIST == Linux ]]; then
 			echo "Uncompressing ECM files, please wait..."
 			ecm-uncompress *.ecm > /dev/null 2>&1 && rm -f *.ecm
 		else
-			if [[ $DIST==Darwin ]]; then
+			if [[ $DIST == Darwin ]]; then
 				echo "Uncompressing ECM files, please wait..."
 				unecm *.ecm > /dev/null 2>&1 && rm -f *.ecm
-			else
-				false
 			fi
 		fi
-
-#		if [[ -e *.bin ]] || [[ -e *.BIN ]]; then
-#			rm -f *.bin *.BIN > /dev/null 2>&1
-#		fi
-
 	done
 fi
 
@@ -100,7 +93,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *
+        	rm -f *.bin *.BIN *.img *.IMG > /dev/null 2>&1
 	fi
 fi
 
@@ -135,7 +128,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *
+        	rm -f *.bin *.BIN *.img *.IMG > /dev/null 2>&1
 	fi
 fi
 
@@ -160,7 +153,7 @@ if [[ ! -d .tmp/ ]]; then
 	mkdir .tmp/
 fi
 
-ls -1 |grep -i "$GAMENAME" > /dev/null 2>&1 ;
+ls -1 |grep -i "$GAMENAME" > /dev/null 2>&1
 RETVAL=$?
 
 if [[ $RETVAL -ne 0 ]]; then
