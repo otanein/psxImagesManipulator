@@ -17,29 +17,34 @@ cd .tmp/
 cueGen() 
 {
 
-for b in *
-do
-	echo $'\x02' | cmp -i 0:15 -n 1 - "$b"
-	case $? in
-	  0)
-	    MODE=MODE2
-	    ;;
-	  1)
-	    MODE=MODE1
-	    ;;
-	  *)
-	    echo "Invalid file format: $b"
-	    exit 1
-	esac
+myarray=(`find . -maxdepth 1 -name "*.cue"`)
+if [[ ${#myarray[@]} -gt 0 ]]; then 
+	true
+else 
+    for b in *
+		do
+		echo $'\x02' | cmp -i 0:15 -n 1 - "$b"
+		case $? in
+		  0)
+		    MODE=MODE2
+		    ;;
+		  1)
+		    MODE=MODE1
+		    ;;
+		  *)
+		    echo "Invalid file format: $b"
+		    exit 1
+		esac
 
-	NAME=$(basename -- "$b")
-	OUTPUT="${NAME}.cue"
-	echo "FILE \"${NAME}\" BINARY
-	  TRACK 01 ${MODE}/2352
-	    INDEX 01 00:00:00" > "${OUTPUT}" &&
-	  echo "CUE file generated: ${OUTPUT}" ||
-	  echo "Failed to generate CUE file for $b"
-done
+		NAME=$(basename -- "$b")
+		OUTPUT="${NAME}.cue"
+		echo "FILE \"${NAME}\" BINARY
+		  TRACK 01 ${MODE}/2352
+		    INDEX 01 00:00:00" > "${OUTPUT}" &&
+		  echo "CUE file generated: ${OUTPUT}" ||
+		  echo "Failed to generate CUE file for $b"
+		done
+fi
 
 }
 
@@ -64,9 +69,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *.bin
-        	rm -f *.img
-        	rm -f *.cue
+        	rm -f *
 	fi
 fi
 
@@ -101,9 +104,7 @@ done
 if [[ $? -eq 0 ]]; then
 	CURDIR=$(pwd | awk -F "/" '{ print $NF }')
 	if [[ $CURDIR == ".tmp" ]]; then
-        	rm -f *.bin
-        	rm -f *.img
-        	rm -f *.cue
+        	rm -f *
 	fi
 fi
 
