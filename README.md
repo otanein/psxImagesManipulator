@@ -87,10 +87,16 @@ Now the game appears as one game (the playlist file) and only weighs 1.482 GigaB
 
 # How to use this tool
 
-First, install mame-tools on your RetroPie (will be used by chdman binary to reudec your images size)
+First, install mame-tools (will be used by chdman binary to reduce your images size) and ecm (will be used to uncompress .ecm files) on your RetroPie 
 
 ```bash
-sudo apt-get install mame-tools
+sudo apt-get install mame-tools ecm
+```
+
+Or on macOS (https://command-not-found.com/chdman and https://command-not-found.com/ecm)
+
+```bash
+brew install rom-tools ecm
 ```
 
 Place the script in your PSX roms folder on your RetroPie and type
@@ -100,7 +106,7 @@ chmod +x psxImagesManipulator.bash
 mv psxImagesManipulator.bash .psxImagesManipulator.bash
 ```
 
-This will render the script executable and will make it a hidden file to avoid it being scrapped by RetroPie
+This will make the script executable and will make it a hidden file to avoid it being scrapped by RetroPie
 
 Then execute it
 
