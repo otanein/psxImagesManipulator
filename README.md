@@ -20,11 +20,11 @@ Here is an exemple with Final Fantasy which weighs 2.716 GigaBytes before using 
 Here is the working process :
 
 ```bash
-me@retropie:/Volumes/roms/psx$ ./psxImagesManipulator.bash
+me@retropie:/Volumes/roms/psx$ ./.psxImagesManipulator.bash
 What is the name of the files?
 Be careful to type the most common part of the files names for multi-discs games!
 Example : For ParasiteEve2 CD1.img and ParasiteEve2 CD2.img, type "ParasiteEve2" (No quotes or spaces)
-IX
+Final Fantasy IX
 The following files are going to be processed :
 Final Fantasy IX - CD1.bin
 Final Fantasy IX - CD2.bin
@@ -97,12 +97,14 @@ Place the script in your PSX roms folder on your RetroPie and type
 
 ```bash
 chmod +x psxImagesManipulator.bash
+mv psxImagesManipulator.bash .psxImagesManipulator.bash
 ```
 
+This will render the script executable and will make the script a hidden file to avoid it being scrapped by RetroPie
 Then execute it
 
 ```bash
-./psxImagesManipulator.bash
+./.psxImagesManipulator.bash
 ```
 
 You'll be prompted with instructions
