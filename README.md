@@ -101,6 +101,7 @@ mv psxImagesManipulator.bash .psxImagesManipulator.bash
 ```
 
 This will render the script executable and will make it a hidden file to avoid it being scrapped by RetroPie
+
 Then execute it
 
 ```bash
