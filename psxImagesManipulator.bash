@@ -1,4 +1,5 @@
 #!/bin/bash
+# switching do dialog box
 
 moveFiles()
 {
